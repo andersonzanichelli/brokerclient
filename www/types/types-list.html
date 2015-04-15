@@ -1,0 +1,8 @@
+<div ng-controller="typeCtrl" >
+    <div class="list">
+        <a class="item item-icon-left" ng-repeat="item in data.types" href="{{item.url}}">
+            <span class="{{item.icon}}"></span>
+            {{item.type}}
+        </a>
+    </div>
+</div>
