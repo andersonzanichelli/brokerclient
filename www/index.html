@@ -14,16 +14,16 @@
   </head>
   <body ng-app="app">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">BrokerClient</h1>
-      </ion-header-bar>
-      <ion-content>
-        <types-list></types-list>
-      </ion-content>
-    </ion-pane>
+    <div class="bar bar-header bar-dark">
+      <a href="#/types" class="button button-icon ion-navicon-round"></a>
+      <div class="h1 title">Broker Client</div>
+      <a href="#/config" class="button button-icon icon ion-ios-gear"></a>
+    </div>
+
+    <ion-nav-view>
 
     <script src="js/types.js"></script>
+    <script src="js/config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="list" ng-controller='configCtrl'>
+
+        <label class="item item-input">
+            <input type="text" data-ng-model="address" placeholder="Server Address" />
+        </label>
+        <label class="item item-input">
+            <input type="number" data-ng-model="port" placeholder="Server Port" />
+        </label>
+
+        <button class="button button-block button-positive" ng-click='save()'>Save</button>
+        <button class="button button-block button-stable" ng-click='load()'>Load</button>
+
+    </div>
+</div>

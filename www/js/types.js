@@ -13,6 +13,6 @@ angular.module('types', ['ionic'])
     .directive('typesList', function(){
        return {
           restrict: 'E',
-          templateUrl: 'types/types-list.html'
+          templateUrl: 'view/types/types-list.html'
        };
     });
