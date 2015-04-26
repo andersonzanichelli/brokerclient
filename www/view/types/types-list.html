@@ -1,8 +1,20 @@
-<div ng-controller="typeCtrl" >
-    <div class="list">
-        <a class="item item-icon-left" ng-repeat="item in data.types" href="{{item.url}}">
-            <span class="{{item.icon}}"></span>
-            {{item.type}}
-        </a>
-    </div>
+<div class="container">
+    <ion-content ng-controller="typeCtrl" ng-init="init()">
+        <div class="bar bar-stable">
+            <h2 class="title">Types Services</h2>
+        </div>
+
+        <div class="container" ng-show="data.error !== undefined ">
+            <div class="bar bar-assertive">
+                <h4 class="title">{{data.error}}</h4>
+            </div>
+        </div>
+
+        <div class="list">
+            <a class="item item-icon-left" ng-repeat="item in data.types" href="{{item.url}}">
+                <span class="{{item.icon}}"></span>
+                {{item.type}}
+            </a>
+        </div>
+    </ion-content>
 </div>

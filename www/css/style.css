@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
 .container {
-    margin: 100px auto;
+    margin: 50px auto;
+}
+
+.info {
+    padding-top: 2.5em;
 }
