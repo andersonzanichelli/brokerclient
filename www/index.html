@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
     <title></title>
 
     <link href="lib/ionic/css/ionic.min.css" rel="stylesheet" />
@@ -20,10 +20,32 @@
       <a href="#/config" class="button button-icon icon ion-ios-gear"></a>
     </div>
 
-    <ion-nav-view>
+    <div ng-controller="appCtrl">
+        <div ng-show="data.loggedIn === undefined">
+            <login></login>
+        </div>
+
+        <div ng-hide="data.loggedIn === undefined">
+            <ion-nav-view></ion-nav-view>
+        </div>
+    </div>
 
     <script src="js/types.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
     <script src="app.js"></script>
+
+    <script>
+      function showLogin(){
+        document.getElementById('signup').style.display = 'none';
+        document.getElementById('login').style.display = '';
+      };
+
+      function showSignup(){
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('signup').style.display = '';
+      }
+    </script>
   </body>
 </html>

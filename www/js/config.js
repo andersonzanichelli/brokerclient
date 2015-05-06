@@ -30,7 +30,7 @@ angular.module('config', [])
             var host = '';
             var config = JSON.parse(window.localStorage.getItem('brokerconfig'));
 
-            if(config !== null && config.address !== '') {
+            if(config !== null && config.address !== '' && config.address !== undefined) {
                 if(temHttp(config.address))
                     host = config.address;
                 else {

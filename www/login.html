@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="list" ng-controller='loginCtrl'>
+    <div id="login" class="list" ng-controller='loginCtrl'>
 
         <label class="item item-input">
             <input type="text" ng-model="email" placeholder="Email" />
@@ -9,13 +9,40 @@
         </label>
 
         <button class="button button-block button-positive" ng-click="login()">Log in</button>
-        <a href='#/signup' class="button button-block button-balanced">Sign up</a>
+        <button class="button button-block button-balanced" onclick="showSignup()">Sign up</button>
 
         <div class="info" ng-show='host === undefined || host === "" '>
             <div class="bar bar-assertive">
                 <h6>Click on config button, and configure the server address.</h6>
             </div>
         </div>
+    </div>
 
+    <div id="signup" class="list" ng-controller='signupCtrl' style="display: none;">
+
+        <label class="item item-input">
+            <input type="text" ng-model="name" placeholder="Name" />
+        </label>
+
+        <label class="item item-input">
+            <input type="text" ng-model="email" placeholder="Email" />
+        </label>
+
+        <label class="item item-input">
+            <input type="password" ng-model="password" placeholder="Password" />
+        </label>
+
+        <label class="item item-input">
+            <input type="password" ng-model="confirm" placeholder="Confirm" />
+        </label>
+
+        <button class="button button-block button-positive" ng-click="signup()">Sign up</button>
+        <button class="button button-block button-balanced" onclick="showLogin()">Back</button>
+
+        <div class="info" ng-show='host === undefined || host === "" '>
+            <div class="bar bar-assertive">
+                <h6>Click on config button, and configure the server address.</h6>
+            </div>
+        </div>
     </div>
 </div>
