@@ -3,6 +3,10 @@
     margin: 50px auto;
 }
 
+.container input {
+    margin-right: 5px;
+}
+
 .info {
     padding-top: 2.5em;
 }
