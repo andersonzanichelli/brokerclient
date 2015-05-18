@@ -17,6 +17,10 @@ angular.module('types', [])
                 $scope.data.error = 'Error on connect to server.';
             }
         };
+
+        $scope.config = function(type, preferences){
+            console.error([type, preferences]);
+        }
     })
     .directive('typesList', function(){
        return {

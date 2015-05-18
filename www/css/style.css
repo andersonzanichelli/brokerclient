@@ -23,3 +23,9 @@
     font-weight: bold;
     font-family: "Helvetica Neue",Roboto,"Segoe UI",sans-serif;
 }
+
+.type-button {
+    padding: 5% 64% 5% 0%;
+    text-decoration:none;
+    color: #444444;
+}
