@@ -10,3 +10,16 @@
 .info {
     padding-top: 2.5em;
 }
+
+.messages {
+    height: auto;
+    border: 1px solid red;
+    background: orangered;
+    text-align: center;
+}
+
+.message-text {
+    color: white;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Roboto,"Segoe UI",sans-serif;
+}
