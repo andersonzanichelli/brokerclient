@@ -2,6 +2,7 @@ angular.module('signup', [])
     .controller('signupCtrl', function($scope, $http, configService){
         $scope.host = configService.load();
         $scope.message = '';
+        $scope.success = '';
         $scope.emailUsed = false;
 
         $scope.confirmation = function(){
@@ -14,7 +15,16 @@ angular.module('signup', [])
             if($scope.password.match(pattern)) {
                 if($scope.password === $scope.confirm) {
                     $scope.message = '';
-                    $scope.signup();
+                    var user = {
+                        "name": $scope.name,
+                        "email": $scope.email,
+                        "password": CryptoJS.SHA256($scope.password).toString()
+                    };
+                    if($scope.emailUsed) {
+                        $scope.message = "Email not available, it has been used.";
+                        return;
+                    }
+                    $scope.signup(user);
                 } else {
                     $scope.message = "The passwords didn't match";
                 }
@@ -22,8 +32,16 @@ angular.module('signup', [])
                 $scope.message = "Please, use a password with numbers, letters and more than 6 chars"
         };
 
-        $scope.signup = function(){
-            console.log("fazer registro!");
+        $scope.signup = function(user){
+            var promisse = $http.get($scope.host + '/signup/' + user['name'] + '/' + user['email'] + '/' + user['password']);
+
+            promisse.success(function(data){
+                if(data["insert"] == true){
+                    $scope.success = 'Success on save the user.';
+                }
+            }).error(function(error){
+                $scope.message = 'Error on trying to save the user.';
+            });
         };
 
         $scope.validateEmail = function(){

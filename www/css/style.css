@@ -18,6 +18,13 @@
     text-align: center;
 }
 
+.success {
+    height: auto;
+    border: 1px solid green;
+    background: green;
+    text-align: center;
+}
+
 .message-text {
     color: white;
     font-weight: bold;

@@ -22,7 +22,7 @@ angular.module('config', [])
         };
     })
     .service('configService', function(){
-        var save= function(config){
+        var save = function(config){
             window.localStorage.setItem('brokerconfig', JSON.stringify(config));
         };
 

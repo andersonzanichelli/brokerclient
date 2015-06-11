@@ -1,5 +1,5 @@
 angular.module('types', [])
-    .controller('typeCtrl', function($scope, $http, configService){
+    .controller('typeCtrl', function($scope, $http, configService, preferencesService){
 
         $scope.init = function(){
             $scope.data = {};
@@ -18,8 +18,8 @@ angular.module('types', [])
             }
         };
 
-        $scope.config = function(type, preferences){
-            console.error([type, preferences]);
+        $scope.config = function(type, params){
+            preferencesService.configuration(type, params);
         }
     })
     .directive('typesList', function(){
