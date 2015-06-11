@@ -3,14 +3,21 @@ angular.module('app',
     , 'types'
     , 'config'
     , 'login'
-    , 'signup'])
+    , 'signup'
+    , 'loading'
+    , 'preferences'])
     .config(function($stateProvider) {
         $stateProvider
-            .state('app', {
+            /*.state('app', {
                 abstract: true,
                 data: {
                     loggedIn: true
                 }
+            })*/
+            .state('config', {
+                url: '/config',
+                templateUrl: 'view/config/configuration.html',
+                controller: 'configCtrl'
             })
             .state('login', {
                 url: '/login',
@@ -28,9 +35,9 @@ angular.module('app',
                 url: '/types',
                 templateUrl: 'view/types/types-list.html'
             })
-            .state('config', {
-                url: '/config',
-                templateUrl: 'view/config/configuration.html'
+            .state('preferences', {
+                url: '/preferences',
+                templateUrl: 'view/config/preferences.html'
             })
             .state('otherwise', {
                 url: '/login',
@@ -42,8 +49,11 @@ angular.module('app',
             });
     })
     .controller('appCtrl', function($scope){
-        $scope.login = function(){
-            $scope.data = {};
+
+        $scope.data = {};
+
+        $scope.configServerAddress = function() {
             $scope.data.loggedIn = true;
-        };
+            $scope.data.configOnly = true;
+        }
     });

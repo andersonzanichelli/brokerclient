@@ -14,26 +14,28 @@
   </head>
   <body ng-app="app">
 
-    <div class="bar bar-header bar-dark">
-      <a href="#/types" class="button button-icon ion-navicon-round"></a>
-      <div class="h1 title">Broker Client</div>
-      <a href="#/config" class="button button-icon icon ion-ios-gear"></a>
-    </div>
-
     <div ng-controller="appCtrl">
-        <div ng-show="data.loggedIn === undefined">
-            <login></login>
-        </div>
+      <div class="bar bar-header bar-dark">
+        <a href="#/types" class="button button-icon ion-navicon-round"></a>
+        <div class="h1 title">Broker Client</div>
+        <a href="#/config" class="button button-icon icon ion-ios-gear" ng-click="configServerAddress()"></a>
+      </div>
 
-        <div ng-hide="data.loggedIn === undefined">
-            <ion-nav-view></ion-nav-view>
-        </div>
+      <div ng-show="data.loggedIn === undefined">
+        <login></login>
+      </div>
+
+      <div ng-hide="data.loggedIn === undefined">
+        <ion-nav-view></ion-nav-view>
+      </div>
     </div>
 
     <script src="js/types.js"></script>
     <script src="js/config.js"></script>
     <script src="js/login.js"></script>
     <script src="js/signup.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/preferences.js"></script>
     <script type="text/javascript" src="lib/crypto-js/crypto-js.js"></script>
     <script src="app.js"></script>
 

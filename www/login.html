@@ -6,14 +6,21 @@
         </label>
         <label class="item item-input">
             <input type="password" ng-model="password" placeholder="Password" />
+            <loading></loading>
         </label>
 
-        <button class="button button-block button-positive" ng-click="login()">Log in</button>
+        <button class="button button-block button-positive" ng-disabled="email === '' && password === ''" ng-click="login()">Log in</button>
         <button class="button button-block button-balanced" onclick="showSignup()">Sign up</button>
 
         <div class="info" ng-show='host === undefined || host === "" '>
             <div class="bar bar-assertive">
                 <h6>Click on config button, and configure the server address.</h6>
+            </div>
+        </div>
+
+        <div ng-show="message !== '' ">
+            <div class="messages">
+                <h6 class="message-text">{{message}}</h6>
             </div>
         </div>
     </div>
@@ -25,7 +32,11 @@
         </label>
 
         <label class="item item-input">
-            <input type="email" ng-model="email" placeholder="Email" required/>
+            <div ng-show="emailUsed === true">
+                <span class="ion-alert-circled"></span>
+            </div>
+            <input type="email" ng-model="email" placeholder="Email" required ng-blur="validateEmail()"/>
+            <loading></loading>
         </label>
 
         <label class="item item-input">
@@ -36,7 +47,7 @@
             <input type="password" ng-model="confirm" placeholder="Confirm" required/>
         </label>
 
-        <button class="button button-block button-positive" ng-click="confirmation()">Sign up</button>
+        <button class="button button-block button-positive" ng-hide="success !== '' " ng-click="confirmation()">Sign up</button>
         <button class="button button-block button-balanced" onclick="showLogin()">Back</button>
 
         <div class="info" ng-show='host === undefined || host === "" '>
@@ -45,9 +56,15 @@
             </div>
         </div>
 
-        <div ng-show="didnotmatch">
-            <div class="bar bar-assertive">
-                <h6 class="title">The passwords didn't match</h6>
+        <div ng-show="message !== '' ">
+            <div class="messages">
+                <h6 class="message-text">{{message}}</h6>
+            </div>
+        </div>
+
+        <div ng-show="success !== '' ">
+            <div class="success">
+                <h6 class="message-text">{{success}}</h6>
             </div>
         </div>
     </div>
