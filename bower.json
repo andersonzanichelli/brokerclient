@@ -16,7 +16,8 @@
     "www/lib"
   ],
   "dependencies": {
-    "crypto-js": "*"
+    "crypto-js": "*",
+    "jquery": "*"
   },
   "version": "0.0.2",
   "homepage": "https://github.com/andersonzanichelli/brokerclient",
