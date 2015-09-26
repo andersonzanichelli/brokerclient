@@ -22,6 +22,14 @@ angular.module('config', [])
         };
     })
     .service('configService', function(){
+        var storeEmail = function(email) {
+            window.localStorage.setItem('email', email);
+        }
+
+        var recoverEmail = function() {
+            return window.localStorage.getItem('email');
+        }
+
         var save = function(config){
             window.localStorage.setItem('brokerconfig', JSON.stringify(config));
         };
@@ -57,6 +65,8 @@ angular.module('config', [])
 
         return {
             save: save,
-            load: load
+            load: load,
+            storeEmail: storeEmail,
+            recoverEmail: recoverEmail
         };
     });

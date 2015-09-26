@@ -15,8 +15,10 @@ angular.module('login', [])
 
                 promisse.success(function (data) {
                     $scope.loading = false;
-                    if (data.logged)
+                    if (data.logged){
                         $scope.data.loggedIn = true;
+                        configService.storeEmail($scope.email);
+                    }
                     else
                         $scope.message = 'User or password did not match';
                 }).error(function (error) {

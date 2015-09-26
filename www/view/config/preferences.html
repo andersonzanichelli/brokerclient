@@ -1,1 +1,8 @@
-<prefs></prefs>
+<div ng-controller="preferencesCtrl">
+	<form id="formprefs" method="post">
+		<span id="host" style="display:none">{{host}}</span>
+		
+	    <preferences></preferences>
+	    <button class="button button-block button-positive" onclick="prefs.savePreferences()">Save</button>
+	</form>
+</div>
